@@ -1,6 +1,20 @@
 const container = document.querySelector('.container');
 const newGrid = document.querySelector("#newGrid");
 const clear = document.querySelector("#clean");
+const color = document.querySelector("#color");
+
+let isColorSelected = false;
+let colorName = "blue";
+
+//selcionar cor
+color.addEventListener("click", () => {
+    isColorSelected = true;
+    colorName = prompt("Type the name of the color: ");
+    if (colorName === ""){
+        isColorSelected = false;
+    }
+
+})
 
 let gridValue = 1;
 
@@ -29,7 +43,11 @@ clear.addEventListener("click", () => {
 
         Array.from(container.children).forEach((element) => {
             element.addEventListener("mouseenter", (elemento) => {
-                element.style.backgroundColor = ` ${randomColor()}`
+                if (!isColorSelected){
+                    element.style.backgroundColor = ` ${randomColor()}`
+                } else {
+                    element.style.backgroundColor = ` ${colorName}`
+                }
             })
         })
 })
@@ -67,7 +85,11 @@ newGrid.addEventListener("click", () => {
 
         Array.from(container.children).forEach((element) => {
             element.addEventListener("mouseenter", (elemento) => {
-                element.style.backgroundColor = ` ${randomColor()}`
+                if (!isColorSelected){
+                    element.style.backgroundColor = ` ${randomColor()}`
+                } else {
+                    element.style.backgroundColor = ` ${colorName}`
+                }
             })
         })
 
