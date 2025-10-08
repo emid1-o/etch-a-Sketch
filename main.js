@@ -143,7 +143,7 @@ function onStart () {
             height: calc(100% / ${gridValue}); 
             border: 1px solid #ccc;  
             background-color: white; 
-            opacity: 0.1;
+            opacity: 1.0;
 
         `
         for (let i = 0; i < gridValue * gridValue; i++) {
